@@ -9,6 +9,22 @@ function throwIfError(error) {
   if (error) throw error;
 }
 
+function canUseLocalPdfFiles() {
+  return window.location.protocol === "file:"
+    || ["localhost", "127.0.0.1"].includes(window.location.hostname);
+}
+
+function withoutLocalPdfFields(volume = {}) {
+  const {
+    demo_url: _demoUrl,
+    pdf_path: _localPdfPath,
+    pdf_storage_mode: _localStorageMode,
+    pdf_parts: _localParts,
+    ...metadata
+  } = volume;
+  return metadata;
+}
+
 export async function listMangas(search = "") {
   let data = [];
   try {
@@ -35,6 +51,7 @@ export async function listMangas(search = "") {
       ...manga,
       is_demo: false,
       has_demo_fallback: Boolean(demo),
+      has_local_content: canUseLocalPdfFiles() && Boolean(demo?.has_local_content),
       volume_count: remoteVolumeCount || demo?.volume_count || 0,
       cover_url: manga.cover_path ? getCoverUrl(manga.cover_path) : (demo?.cover_url || "")
     });
@@ -78,18 +95,21 @@ export async function getMangaDetails(id) {
         );
         if (!demoVolume) return volume;
         if (volume.pdf_path) {
-          const {
-            demo_url: _demoUrl,
-            pdf_path: _localPdfPath,
-            pdf_storage_mode: _localStorageMode,
-            pdf_parts: _localParts,
-            ...demoMetadata
-          } = demoVolume;
+          const demoMetadata = withoutLocalPdfFields(demoVolume);
           return {
             ...demoMetadata,
             ...volume,
             is_demo: false,
             has_remote_pdf: true
+          };
+        }
+        if (!canUseLocalPdfFiles()) {
+          return {
+            ...withoutLocalPdfFields(demoVolume),
+            ...volume,
+            is_demo: false,
+            is_user_provided: false,
+            has_local_fallback: false
           };
         }
         return {
@@ -112,7 +132,8 @@ export async function getMangaDetails(id) {
     ...manga,
     is_demo: false,
     has_demo_fallback: Boolean(demo),
-    has_local_content: Boolean(demo?.has_local_content),
+    has_local_content: canUseLocalPdfFiles() && Boolean(demo?.has_local_content),
+    has_remote_content: volumes.some((volume) => Boolean(volume.has_remote_pdf || volume.pdf_path)),
     cover_url: manga.cover_path ? getCoverUrl(manga.cover_path) : (demo?.cover_url || ""),
     volumes: volumes || []
   };

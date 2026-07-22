@@ -10,6 +10,22 @@ function throwIfError(error) {
   if (error) throw error;
 }
 
+function canUseLocalPdfFiles() {
+  return window.location.protocol === "file:"
+    || ["localhost", "127.0.0.1"].includes(window.location.hostname);
+}
+
+function withoutLocalPdfFields(volume = {}) {
+  const {
+    demo_url: _demoUrl,
+    pdf_path: _localPdfPath,
+    pdf_storage_mode: _localStorageMode,
+    pdf_parts: _localParts,
+    ...metadata
+  } = volume;
+  return metadata;
+}
+
 export async function getVolumesByManga(mangaId) {
   const supabase = getSupabase();
   const { data, error } = await supabase
@@ -38,15 +54,19 @@ export async function getVolumeById(id) {
   const demoVolume = demoManga?.volumes.find(
     (item) => item.normalized_title === data.normalized_title
   );
+  const hasRemotePdf = Boolean(data.pdf_path)
+    || (data.pdf_storage_mode === "chunks" && data.pdf_parts?.length);
+  const demoMetadata = withoutLocalPdfFields(demoVolume);
   return {
-    ...(demoVolume || {}),
+    ...(hasRemotePdf || !canUseLocalPdfFiles() ? demoMetadata : (demoVolume || {})),
     ...data,
+    has_remote_pdf: hasRemotePdf,
     ...(!data.pdf_path && demoVolume ? {
-      demo_url: demoVolume.demo_url,
+      ...(canUseLocalPdfFiles() ? { demo_url: demoVolume.demo_url } : {}),
       page_count: demoVolume.page_count,
-      is_user_provided: demoVolume.is_user_provided,
+      is_user_provided: canUseLocalPdfFiles() && demoVolume.is_user_provided,
       is_demo: false,
-      has_local_fallback: true
+      has_local_fallback: canUseLocalPdfFiles()
     } : {}),
     chapter_marks: marks.length ? marks : (demoVolume?.chapter_marks || [])
   };

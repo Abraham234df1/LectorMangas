@@ -1,5 +1,5 @@
 import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs";
-import { getVolumeById } from "./volume-service.js?v=20260722-v11";
+import { getVolumeById } from "./volume-service.js?v=20260722-v12";
 import { downloadVolumePdf } from "./storage-service.js?v=20260722-v6";
 import { getQueryParam, friendlyError, setStatus } from "./utils.js";
 import {

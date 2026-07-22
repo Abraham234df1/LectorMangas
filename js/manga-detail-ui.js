@@ -17,7 +17,9 @@ export function renderMangaDetail(container, manga) {
       const action = hasPdf
         ? `<a class="button primary volume-read-button" href="reader.html?volumeId=${encodeURIComponent(volume.id)}">Leer ahora <span aria-hidden="true">→</span></a>`
         : `<span class="volume-pending" aria-label="PDF pendiente de carga">PDF pendiente</span>`;
-      const demoBadge = volume.is_user_provided
+      const demoBadge = volume.has_remote_pdf
+        ? `<span class="demo-volume-badge">PDF en Supabase${volume.page_count ? ` · ${Number(volume.page_count)} páginas` : ""}</span>`
+        : volume.is_user_provided
         ? `<span class="demo-volume-badge">PDF local · ${Number(volume.page_count || 0)} páginas</span>`
         : volume.demo_url || volume.is_demo
         ? `<span class="demo-volume-badge">PDF demo</span>`
@@ -62,7 +64,7 @@ export function renderMangaDetail(container, manga) {
     <div class="detail-grid">
       <div class="detail-cover-wrap">
         <img class="detail-cover" src="${escapeHtml(manga.cover_url || fallbackCover)}" alt="Portada de ${escapeHtml(manga.title)}">
-        ${manga.has_local_content ? `<span class="detail-demo-badge">PDFs locales disponibles</span>` : manga.is_demo || manga.has_demo_fallback ? `<span class="detail-demo-badge">Contenido demo disponible</span>` : ""}
+        ${manga.has_remote_content ? `<span class="detail-demo-badge">PDFs disponibles en línea</span>` : manga.has_local_content ? `<span class="detail-demo-badge">PDFs locales disponibles</span>` : manga.is_demo || manga.has_demo_fallback ? `<span class="detail-demo-badge">Contenido demo disponible</span>` : ""}
       </div>
       <div class="detail-info">
         <span class="eyebrow">Colección digital · ${manga.direction.toUpperCase()}</span>

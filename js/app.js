@@ -1,4 +1,4 @@
-import { listMangas } from "./manga-service.js?v=20260722-v13";
+import { listMangas } from "./manga-service.js?v=20260722-v14";
 import { debounce, friendlyError, setStatus } from "./utils.js";
 import { renderMangaGrid } from "./library-ui.js?v=20260722-v6";
 
