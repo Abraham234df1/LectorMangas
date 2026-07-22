@@ -8,7 +8,8 @@ __pycache__/
 tmp/
 
 # Los PDF reales están alojados en Supabase Storage y exceden los límites de GitHub.
-output/pdf/
+output/pdf/**/*.pdf
+output/pdf/**/*.PDF
 
 # Artefactos locales de QA y archivos temporales de Word.
 output/qa_*/

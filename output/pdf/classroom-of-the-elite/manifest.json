@@ -1,0 +1,22 @@
+{
+  "title": "Classroom of the Elite",
+  "imported_at": "2026-07-22",
+  "source_folder": "C:\\Users\\manue\\Downloads\\Manga",
+  "originals_preserved": true,
+  "files": [
+    { "source": "Youkoso 01-04.pdf", "target": "classroom-of-the-elite-capitulos-01-04.pdf", "chapters": "1-4", "pages": 142 },
+    { "source": "05-09.pdf", "target": "classroom-of-the-elite-capitulos-05-09.pdf", "chapters": "5-9", "pages": 140 },
+    { "source": "Youkoso 10-14.pdf", "target": "classroom-of-the-elite-capitulos-10-14.pdf", "chapters": "10-14", "pages": 181 },
+    { "source": "Youkoso 15-18.pdf", "target": "classroom-of-the-elite-capitulos-15-18.pdf", "chapters": "15-18", "pages": 153 },
+    { "source": "Youkoso 19-22.pdf", "target": "classroom-of-the-elite-capitulos-19-22.pdf", "chapters": "19-22", "pages": 144 },
+    { "source": "Youkoso 23-27.pdf", "target": "classroom-of-the-elite-capitulos-23-27.pdf", "chapters": "23-27", "pages": 140 },
+    { "source": "Youkoso 28-32.pdf", "target": "classroom-of-the-elite-capitulos-28-32.pdf", "chapters": "28-32", "pages": 154 },
+    { "source": "Youkoso 33-38.pdf", "target": "classroom-of-the-elite-capitulos-33-38.pdf", "chapters": "33-38", "pages": 173 },
+    { "source": "Youkoso 39-45.pdf", "target": "classroom-of-the-elite-capitulos-39-45.pdf", "chapters": "39-45", "pages": 172 },
+    { "source": "Youkoso 46-52.pdf", "target": "classroom-of-the-elite-capitulos-46-52.pdf", "chapters": "46-52", "pages": 161 },
+    { "source": "Youkoso 53-60.pdf", "target": "classroom-of-the-elite-capitulos-53-60.pdf", "chapters": "53-60", "pages": 152 },
+    { "source": "Youkoso 61-70.pdf", "target": "classroom-of-the-elite-capitulos-61-70.pdf", "chapters": "61-70", "pages": 160 },
+    { "source": "Youkoso 71-72.PDF", "target": "classroom-of-the-elite-capitulos-71-72.pdf", "chapters": "71-72", "pages": 24 },
+    { "source": "Youkoso 73.pdf", "target": "classroom-of-the-elite-capitulo-73.pdf", "chapters": "73", "pages": 12 }
+  ]
+}

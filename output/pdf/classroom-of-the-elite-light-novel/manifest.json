@@ -1,0 +1,65 @@
+{
+  "title": "Classroom of the Elite - Novela ligera",
+  "imported_at": "2026-07-22",
+  "source_folder": "C:\\Users\\manue\\Downloads\\Novela",
+  "originals_preserved": true,
+  "classification_note": "El archivo de descarga Vol 16 fue clasificado como Año 2 Volumen 5 por continuidad y contenido; su encabezado interno indica incorrectamente Volumen 11.",
+  "sections": [
+    {
+      "id": "year-1",
+      "title": "Año 1",
+      "files": [
+        { "volume": "0", "pages": 258, "language": "en", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-00.pdf" },
+        { "volume": "1", "pages": 277, "language": "en", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-01.pdf" },
+        { "volume": "2", "pages": 277, "language": "en", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-02.pdf" },
+        { "volume": "3", "pages": 266, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-03.pdf" },
+        { "volume": "4", "pages": 258, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-04.pdf" },
+        { "volume": "4.5", "pages": 257, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-04-5.pdf" },
+        { "volume": "5", "pages": 263, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-05.pdf" },
+        { "volume": "6", "pages": 259, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-06.pdf" },
+        { "volume": "7", "pages": 249, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-07.pdf" },
+        { "volume": "7.5", "pages": 229, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-07-5.pdf" },
+        { "volume": "8", "pages": 247, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-08.pdf" },
+        { "volume": "9", "pages": 247, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-09.pdf" },
+        { "volume": "10", "pages": 278, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-10.pdf" },
+        { "volume": "11", "pages": 293, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-11.pdf" },
+        { "volume": "11.5", "pages": 297, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-11-5.pdf" },
+        { "volume": "11.75", "pages": 12, "language": "es", "file": "year-1/classroom-of-the-elite-light-novel-year-1-volume-11-75.pdf" }
+      ]
+    },
+    {
+      "id": "year-2",
+      "title": "Año 2",
+      "files": [
+        { "volume": "1", "pages": 306, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-01.pdf" },
+        { "volume": "2", "pages": 273, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-02.pdf" },
+        { "volume": "3", "pages": 314, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-03.pdf" },
+        { "volume": "4", "pages": 464, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-04.pdf" },
+        { "volume": "4.5", "pages": 550, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-04-5.pdf" },
+        { "volume": "5", "pages": 321, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-05.pdf" },
+        { "volume": "6", "pages": 337, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-06.pdf" },
+        { "volume": "7", "pages": 344, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-07.pdf" },
+        { "volume": "8", "pages": 339, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-08.pdf" },
+        { "volume": "9", "pages": 282, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-09.pdf" },
+        { "volume": "9.5", "pages": 250, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-09-5.pdf" },
+        { "volume": "9.75", "pages": 12, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-09-75.pdf" },
+        { "volume": "10", "pages": 286, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-10.pdf" },
+        { "volume": "10.25", "pages": 12, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-10-25.pdf" },
+        { "volume": "11", "pages": 252, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-11.pdf" },
+        { "volume": "12", "pages": 266, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-12.pdf" },
+        { "volume": "12.5", "pages": 212, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-12-5.pdf" },
+        { "volume": "12.75", "pages": 10, "language": "es", "file": "year-2/classroom-of-the-elite-light-novel-year-2-volume-12-75.pdf" }
+      ]
+    },
+    {
+      "id": "year-3",
+      "title": "Año 3",
+      "files": [
+        { "volume": "1", "pages": 232, "language": "es", "file": "year-3/classroom-of-the-elite-light-novel-year-3-volume-01.pdf" },
+        { "volume": "2", "pages": 269, "language": "es", "file": "year-3/classroom-of-the-elite-light-novel-year-3-volume-02.pdf" },
+        { "volume": "3", "pages": 306, "language": "es", "file": "year-3/classroom-of-the-elite-light-novel-year-3-volume-03.pdf" },
+        { "volume": "4", "pages": 308, "language": "es", "file": "year-3/classroom-of-the-elite-light-novel-year-3-volume-04.pdf" }
+      ]
+    }
+  ]
+}
