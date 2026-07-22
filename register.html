@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crear una cuenta administrativa de LectorPolar.">
+  <title>LectorPolar | Crear cuenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260722-v16">
+  <link rel="stylesheet" href="css/responsive.css?v=20260722-v16">
+</head>
+<body class="auth-page">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">LP</span><span><strong>LectorPolar</strong><small>Biblioteca digital</small></span></a>
+    <nav class="main-nav"><a href="index.html">Biblioteca</a><a class="button small secondary" href="login.html">Iniciar sesión</a></nav>
+  </header>
+
+  <main class="auth-layout">
+    <section class="panel auth-card">
+      <div class="auth-heading">
+        <span class="eyebrow">Nuevo administrador</span>
+        <h1>Crear cuenta</h1>
+        <p>Completa los datos y utiliza el código de invitación del proyecto.</p>
+      </div>
+
+      <form id="register-form" class="stack-form">
+        <label>Correo electrónico
+          <input type="email" name="email" placeholder="ejemplo@correo.com" autocomplete="email" required>
+        </label>
+        <label>Contraseña
+          <input type="password" name="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" required>
+        </label>
+        <label>Confirmar contraseña
+          <input type="password" name="confirmPassword" placeholder="Repite tu contraseña" autocomplete="new-password" minlength="8" required>
+        </label>
+        <label>Código de invitación
+          <input type="password" name="inviteCode" placeholder="Código del proyecto" required>
+        </label>
+        <label class="inline-check"><input id="show-passwords" type="checkbox"> Mostrar contraseñas</label>
+        <button class="button primary full" type="submit">Crear cuenta</button>
+      </form>
+
+      <p id="auth-status" class="status-message" hidden></p>
+      <div class="auth-separator"><span>¿Ya tienes cuenta?</span></div>
+      <a class="button secondary full" href="login.html">Volver a iniciar sesión</a>
+    </section>
+  </main>
+
+  <script src="js/config.js?v=20260722-v15"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="js/register.js?v=20260722-v15"></script>
+</body>
+</html>

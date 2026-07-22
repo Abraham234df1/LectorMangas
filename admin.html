@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panel de administración de LectorPolar.">
+  <title>LectorPolar | Panel de administración</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260722-v16">
+  <link rel="stylesheet" href="css/responsive.css?v=20260722-v16">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">LP</span>
+      <span><strong>LectorPolar</strong><small>Panel administrativo</small></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span id="admin-email" style="font-size:0.85rem; color:var(--muted)"></span>
+      <button id="logout-button" class="button small secondary" type="button">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="admin-layout">
+    <aside class="admin-sidebar">
+      <nav aria-label="Menú de administración">
+        <a href="admin.html" class="sidebar-link active">
+          <span>📊</span> Resumen y Catálogo
+        </a>
+        <a href="index.html" class="sidebar-link">
+          <span>🏠</span> Ver Biblioteca pública
+        </a>
+      </nav>
+      <div style="margin-top:auto; font-size:0.75rem; color:var(--muted)">
+        LectorPolar © 2026
+      </div>
+    </aside>
+
+    <section class="admin-content">
+      <div class="admin-header">
+        <div>
+          <span class="eyebrow">Gestión de contenido</span>
+          <h1>Panel de administración</h1>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <section class="stats-grid">
+        <article class="panel stat-card">
+          <span>Total de mangas</span>
+          <strong id="stat-total-mangas">0</strong>
+        </article>
+        <article class="panel stat-card">
+          <span>Total de tomos</span>
+          <strong id="stat-total-tomos">0</strong>
+        </article>
+        <article class="panel stat-card">
+          <span>Marcas de Capítulos</span>
+          <strong id="stat-total-marcas">—</strong>
+        </article>
+      </section>
+
+      <!-- Mangas CRUD Section -->
+      <section class="admin-sections">
+        <div style="display:grid; grid-template-columns: 1fr 1.3fr; gap:24px;" class="admin-grid-desktop">
+          <!-- Form Panel -->
+          <article class="panel">
+            <h2 id="manga-form-title" style="font-size:1.25rem; font-weight:750; margin-bottom:18px">Registrar manga</h2>
+            <form id="manga-form" class="stack-form">
+              <label>Título <span class="required">*</span>
+                <input type="text" name="title" maxlength="150" placeholder="Ej. Naruto" required>
+              </label>
+              <label>Autor <span class="required">*</span>
+                <input type="text" name="author" maxlength="150" placeholder="Ej. Masashi Kishimoto" required>
+              </label>
+              <label>Sinopsis
+                <textarea name="synopsis" rows="4" placeholder="Ingresa el resumen de la historia..." maxlength="2000"></textarea>
+              </label>
+              <label>Sentido de lectura <span class="required">*</span>
+                <select name="direction" required>
+                  <option value="rtl">Derecha a izquierda (Manga)</option>
+                  <option value="ltr">Izquierda a derecha (Cómic)</option>
+                </select>
+              </label>
+              <label>Portada <span class="required">*</span>
+                <input type="file" name="cover" accept="image/jpeg,image/png,image/webp" required>
+                <span class="field-help">Formatos: JPG, PNG o WEBP. Máximo 10 MB.</span>
+              </label>
+              <div class="form-actions">
+                <button class="button primary" type="submit">Guardar manga</button>
+                <button id="cancel-manga-edit" class="button ghost" type="button" hidden>Cancelar</button>
+              </div>
+            </form>
+            <p id="manga-status" class="status-message" hidden></p>
+          </article>
+
+          <!-- List Panel -->
+          <article class="panel">
+            <h2 style="font-size:1.25rem; font-weight:750; margin-bottom:18px">Mangas guardados</h2>
+            <div id="admin-manga-list" class="admin-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Volumes CRUD Section (selected manga) -->
+      <section id="volume-section" class="volume-admin panel" style="margin-top:24px;" hidden>
+        <div class="split-heading" style="border-bottom:1px solid var(--line); padding-bottom:14px">
+          <div>
+            <span class="eyebrow">Manga seleccionado</span>
+            <h2 id="selected-manga-name">—</h2>
+          </div>
+        </div>
+
+        <div class="volume-manager-grid" style="margin-top:20px">
+          <!-- Volume Form -->
+          <div class="nested-panel">
+            <h3 id="volume-form-title" style="font-size:1.15rem; font-weight:700; margin-bottom:16px">Agregar tomo</h3>
+            <form id="volume-form" class="stack-form">
+              <label>Título del tomo <span class="required">*</span>
+                <input type="text" name="title" placeholder="Ej. Tomo 01" maxlength="150" required>
+              </label>
+              <label>Capítulos incluidos
+                <input type="text" name="chaptersLabel" placeholder="Ej. Capítulos 1 al 7" maxlength="300">
+              </label>
+              <label>Archivo PDF <span class="required">*</span>
+                <input type="file" name="pdf" accept="application/pdf" required>
+                <span class="field-help">Archivos grandes se subirán automáticamente en partes.</span>
+              </label>
+
+              <fieldset class="marks-fieldset" style="border:1px solid var(--line); border-radius:8px; padding:15px; margin-top:10px">
+                <legend style="padding:0 8px; font-weight:700; font-size:0.85rem">Marcas de capítulos</legend>
+                <p class="field-help" style="margin-bottom:10px">Indica la página inicial de cada capítulo en el PDF.</p>
+                <div id="chapter-marks" class="chapter-marks"></div>
+                <button id="add-chapter-mark" class="button small secondary" type="button" style="margin-top:8px">+ Agregar marca</button>
+              </fieldset>
+
+              <!-- Upload Progress -->
+              <div id="upload-progress" class="progress-container" hidden>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem">
+                  <span>Progreso de subida</span>
+                  <strong id="upload-progress-text">0%</strong>
+                </div>
+                <div class="progress-bar">
+                  <div id="upload-progress-bar-fill" class="progress-fill" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div class="form-actions" style="margin-top:14px">
+                <button class="button primary" type="submit">Guardar tomo</button>
+                <button id="cancel-volume-edit" class="button ghost" type="button" hidden>Cancelar</button>
+              </div>
+            </form>
+            <p id="volume-status" class="status-message" hidden></p>
+          </div>
+
+          <!-- Volume List -->
+          <div class="nested-panel">
+            <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:16px">Tomos registrados</h3>
+            <div id="admin-volume-list" class="admin-list"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/config.js?v=20260722-v15"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="js/admin.js?v=20260722-v22"></script>
+</body>
+</html>

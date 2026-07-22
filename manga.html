@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Información completa del manga y tomos disponibles.">
+  <title>LectorPolar | Detalles del manga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260722-v16">
+  <link rel="stylesheet" href="css/responsive.css?v=20260722-v16">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">LP</span>
+      <span><strong>LectorPolar</strong><small>Biblioteca digital</small></span>
+    </a>
+    <nav class="main-nav">
+      <a class="active" href="index.html">Biblioteca</a>
+      <a class="button small secondary" href="admin.html">Administración</a>
+    </nav>
+  </header>
+
+  <main class="content-layout">
+    <p id="manga-status" class="status-message" hidden></p>
+    <div id="manga-detail-container" style="margin-top:30px">
+      <!-- Loading skeleton -->
+      <div class="detail-grid">
+        <div class="skeleton" style="aspect-ratio: 0.7; border-radius:12px; width:100%"></div>
+        <div style="display:grid; gap:16px; align-content:start">
+          <div class="skeleton" style="height:14px; width:120px"></div>
+          <div class="skeleton" style="height:36px; width:340px; margin-top:10px"></div>
+          <div class="skeleton" style="height:16px; width:180px"></div>
+          <div class="skeleton" style="height:100px; width:100%; margin-top:10px"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>LectorPolar · Biblioteca digital con HTML, CSS, JavaScript y Supabase.</p>
+  </footer>
+
+  <script src="js/config.js?v=20260722-v15"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module">
+    import { getMangaDetails } from "./js/manga-service.js?v=20260722-v13";
+    import { renderMangaDetail } from "./js/manga-detail-ui.js?v=20260722-v7";
+    import { getQueryParam, friendlyError, setStatus } from "./js/utils.js";
+
+    const elements = {
+      container: document.getElementById("manga-detail-container"),
+      status: document.getElementById("manga-status")
+    };
+
+    async function loadManga() {
+      const id = getQueryParam("id");
+      if (!id) {
+        setStatus(elements.status, "Identificador de manga no proporcionado.", "error");
+        elements.container.innerHTML = "";
+        return;
+      }
+
+      setStatus(elements.status, "Cargando información detallada...", "info");
+      try {
+        const manga = await getMangaDetails(id);
+        renderMangaDetail(elements.container, manga);
+        document.title = `LectorPolar | ${manga.title}`;
+        setStatus(elements.status, "");
+      } catch (error) {
+        setStatus(elements.status, friendlyError(error), "error");
+        elements.container.innerHTML = `
+          <div class="empty-state panel">
+            <span class="empty-state-icon">❌</span>
+            <h3>No se pudo cargar el manga</h3>
+            <p>El manga solicitado no existe o no se pudo establecer conexión con el servidor.</p>
+            <a href="index.html" class="button secondary" style="margin-top:16px">Volver al inicio</a>
+          </div>`;
+      }
+    }
+
+    loadManga();
+  </script>
+</body>
+</html>

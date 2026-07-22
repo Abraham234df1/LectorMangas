@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lector PDF interactivo con efecto libro 3D de LectorPolar.">
+  <title>LectorPolar | Lector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260722-v16">
+  <link rel="stylesheet" href="css/responsive.css?v=20260722-v16">
+  <link rel="stylesheet" href="css/reader.css?v=20260722-v15">
+</head>
+<body class="reader-page">
+  <header class="reader-header">
+    <a class="brand" href="index.html" style="transform: scale(0.9)">
+      <span class="brand-mark">LP</span>
+      <span><strong>LectorPolar</strong><small>Modo lectura</small></span>
+    </a>
+    <div class="reader-info">
+      <h1 id="reader-title">Cargando tomo...</h1>
+      <p id="reader-subtitle"></p>
+    </div>
+    <a class="button small secondary" href="index.html">Salir</a>
+  </header>
+
+  <main class="reader-main">
+    <p id="reader-status" class="status-message" style="margin: 10px 20px" hidden></p>
+
+    <!-- Toolbar controls -->
+    <section class="reader-toolbar" aria-label="Controles de lectura">
+      <div class="toolbar-group">
+        <button id="previous-page" class="button secondary small" type="button" disabled>← Anterior</button>
+        <button id="next-page" class="button primary small" type="button" disabled>Siguiente →</button>
+      </div>
+
+      <div class="toolbar-group page-counter">
+        <label for="page-input">Pág.</label>
+        <input id="page-input" type="number" min="1" value="1">
+        <span id="page-total">/ 0</span>
+      </div>
+
+      <div class="toolbar-group chapter-select-wrapper">
+        <select id="chapter-select" aria-label="Seleccionar capítulo" disabled>
+          <option value="">Ir a capítulo...</option>
+        </select>
+      </div>
+
+      <div class="toolbar-group">
+        <button id="zoom-out" class="icon-button" type="button" aria-label="Alejar" style="width:32px; height:32px; font-size:1rem">−</button>
+        <span id="zoom-label" style="font-size:0.85rem; min-width:40px; text-align:center">100%</span>
+        <button id="zoom-in" class="icon-button" type="button" aria-label="Acercar" style="width:32px; height:32px; font-size:1rem">+</button>
+      </div>
+
+      <div class="toolbar-group">
+        <button id="fullscreen-button" class="button secondary small" type="button">Pantalla completa</button>
+      </div>
+    </section>
+
+    <!-- Interactive Book stage -->
+    <section class="book-stage">
+      <div id="reader-loading" class="reader-loader">
+        <span class="spinner large"></span>
+        <strong id="reader-loading-text">Cargando libro digital...</strong>
+        <progress id="reader-loading-bar" max="100" value="0" style="width:200px; height:8px; accent-color:var(--primary)"></progress>
+      </div>
+      <div id="book" class="book" aria-live="polite"></div>
+    </section>
+
+    <div class="reader-tip">
+      💡 Usa las flechas izquierda/derecha de tu teclado para hojear el libro.
+    </div>
+  </main>
+
+  <script src="js/config.js?v=20260722-v15"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <script type="module" src="js/reader.js?v=20260722-v23"></script>
+</body>
+</html>

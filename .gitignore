@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.pyc
+__pycache__/
+tmp/
+
+# Los PDF reales están alojados en Supabase Storage y exceden los límites de GitHub.
+output/pdf/
+
+# Artefactos locales de QA y archivos temporales de Word.
+output/qa_*/
+output/~$*.docx
+output/MangaReadV1_Entrega_Completa.docx
+tools/actualizar_documento_entrega.py

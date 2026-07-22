@@ -1,0 +1,121 @@
+@media (max-width: 1024px) {
+  .carousel-slide { grid-template-columns: 1fr minmax(230px, .55fr); min-height: 470px; }
+  .carousel-copy { padding: 55px 30px 50px 54px; }
+  .carousel-art { padding-right: 36px; }
+  .carousel-copy h1, .carousel-copy h2 { font-size: clamp(2.35rem, 6.2vw, 4.2rem); }
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+  .hero-art {
+    min-height: 280px;
+  }
+  .hero-copy { padding: 38px 30px 0; }
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .admin-sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+  .admin-sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-carousel { width: min(100% - 24px, 1320px); margin-top: 18px; border-radius: 22px; }
+  .carousel-slide { grid-template-columns: 1fr; min-height: 610px; align-content: start; }
+  .carousel-copy { padding: 42px 34px 20px; text-align: center; }
+  .carousel-kicker { justify-content: center; }
+  .carousel-copy h1, .carousel-copy h2 { margin-inline: auto; font-size: clamp(2.15rem, 9vw, 3.5rem); }
+  .carousel-copy p { margin-inline: auto; }
+  .carousel-copy .hero-actions { justify-content: center; }
+  .carousel-art { min-height: 255px; padding: 0 28px 30px; }
+  .carousel-art img { width: 150px; max-height: 220px; border-radius: 12px; }
+  .cover-glow { width: 210px; height: 210px; filter: blur(55px); }
+  .carousel-arrow { top: 67%; width: 38px; height: 52px; }
+  .carousel-footer { align-items: flex-start; flex-direction: column; padding: 16px 20px; }
+  .catalog-carousel .hero-proof { width: 100%; justify-content: space-between; gap: 12px; }
+  .site-header {
+    padding: 15px;
+  }
+  .main-nav {
+    gap: 10px;
+  }
+  .main-nav a:not(.button) {
+    display: none;
+  }
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .detail-cover {
+    width: 160px;
+    margin: 0 auto;
+  }
+  .detail-cover-wrap { width: 160px; margin: 0 auto; }
+  .manga-info {
+    text-align: center;
+  }
+  .volume-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .volume-year-section { padding: 14px; }
+  .volume-year-header { align-items: flex-start; }
+  .volume-index { display: none; }
+  .volume-row .button {
+    width: 100%;
+  }
+  .admin-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-slide { min-height: 635px; }
+  .carousel-copy { padding: 34px 22px 18px; }
+  .carousel-copy h1, .carousel-copy h2 { font-size: 2.35rem; }
+  .carousel-copy .hero-actions .button { width: 100%; }
+  .carousel-art { min-height: 240px; }
+  .catalog-carousel .hero-proof span { font-size: .62rem; }
+  .catalog-carousel .hero-proof strong { font-size: 1.05rem; }
+  .hero-section { width: min(var(--max-width), calc(100% - 24px)); margin-top: 18px; }
+  .hero-copy { padding: 28px 22px 0; }
+  .hero-actions .button { width: 100%; }
+  .hero-proof { gap: 14px; justify-content: center; }
+  .hero-art { min-height: 220px; transform: scale(.88); }
+  .brand small {
+    display: none;
+  }
+  .content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .toast {
+    left: 10px;
+    right: 10px;
+    min-width: auto;
+  }
+  .chapter-mark-row {
+    grid-template-columns: 1fr;
+  }
+  .chapter-mark-row .icon-button {
+    width: 100%;
+  }
+}

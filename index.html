@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LectorPolar, biblioteca digital de mangas, cómics y novelas ligeras en PDF.">
+  <title>LectorPolar | Biblioteca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260722-v16">
+  <link rel="stylesheet" href="css/responsive.css?v=20260722-v16">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">LP</span><span><strong>LectorPolar</strong><small>Biblioteca digital</small></span></a>
+    <nav class="main-nav"><a class="active" href="index.html">Biblioteca</a><a class="button small secondary" href="admin.html">Administración</a></nav>
+  </header>
+  <main>
+    <section class="catalog-carousel" aria-roledescription="carrusel" aria-label="Colecciones destacadas">
+      <div class="carousel-viewport">
+        <div id="featured-track" class="carousel-track">
+          <article class="carousel-slide is-active" data-carousel-slide aria-label="My Hero Academia, diapositiva 1 de 3">
+            <div class="carousel-copy">
+              <span class="carousel-kicker">Colección completa · 42 tomos</span>
+              <h1>Una biblioteca para leer sin perder el hilo.</h1>
+              <p>My Hero Academia ya está organizado del tomo 1 al 42 y conectado con el lector de páginas animadas.</p>
+              <div class="hero-actions"><a class="button primary" href="manga.html?id=local-my-hero-academia">Abrir colección</a><a class="button carousel-ghost" href="#catalogo">Ver catálogo</a></div>
+            </div>
+            <div class="carousel-art" aria-hidden="true"><span class="cover-glow"></span><img src="output/covers/my-hero-academia/cover.jpg" alt=""></div>
+          </article>
+          <article class="carousel-slide" data-carousel-slide aria-label="Jujutsu Kaisen, diapositiva 2 de 3" aria-hidden="true">
+            <div class="carousel-copy">
+              <span class="carousel-kicker">Nuevo en LectorPolar</span>
+              <h2>Jujutsu Kaisen entra al catálogo.</h2>
+              <p>Consulta su ficha, administra sus tomos y deja lista la siguiente lectura desde el mismo panel.</p>
+              <div class="hero-actions"><a class="button primary" href="manga.html?id=c1000000-0000-4000-8000-000000000009">Ver Jujutsu Kaisen</a><a class="button carousel-ghost" href="admin.html">Administrar</a></div>
+            </div>
+            <div class="carousel-art" aria-hidden="true"><span class="cover-glow violet"></span><img src="output/covers/catalog/jujutsu-kaisen.jpg" alt=""></div>
+          </article>
+          <article class="carousel-slide" data-carousel-slide aria-label="Oregairu, diapositiva 3 de 3" aria-hidden="true">
+            <div class="carousel-copy">
+              <span class="carousel-kicker">Drama escolar · Nueva ficha</span>
+              <h2>Oregairu se suma a la colección.</h2>
+              <p>Una nueva sección para organizar la novela y sus futuras lecturas con la misma experiencia polar.</p>
+              <div class="hero-actions"><a class="button primary" href="manga.html?id=c1000000-0000-4000-8000-000000000013">Explorar Oregairu</a><a class="button carousel-ghost" href="#catalogo">Más títulos</a></div>
+            </div>
+            <div class="carousel-art" aria-hidden="true"><span class="cover-glow rose"></span><img src="output/covers/catalog/oregairu.jpg" alt=""></div>
+          </article>
+        </div>
+        <button id="carousel-previous" class="carousel-arrow previous" type="button" aria-label="Colección anterior">‹</button>
+        <button id="carousel-next" class="carousel-arrow next" type="button" aria-label="Colección siguiente">›</button>
+      </div>
+      <div class="carousel-footer">
+        <div class="carousel-dots" aria-label="Elegir colección">
+          <button class="is-active" type="button" data-carousel-dot="0" aria-label="Mostrar My Hero Academia" aria-current="true"></button>
+          <button type="button" data-carousel-dot="1" aria-label="Mostrar Jujutsu Kaisen"></button>
+          <button type="button" data-carousel-dot="2" aria-label="Mostrar Oregairu"></button>
+        </div>
+        <div class="hero-proof" aria-label="Resumen del catálogo"><div><strong id="hero-title-count">14</strong><span>títulos</span></div><div><strong id="hero-volume-count">94</strong><span>lecturas</span></div><div><strong>3D</strong><span>cambio de hoja</span></div></div>
+      </div>
+    </section>
+    <section id="catalogo" class="content-layout">
+      <div class="content-title-row"><div><span class="eyebrow">Catálogo público</span><h2 style="margin-top:4px">Biblioteca</h2></div><span id="result-count" class="result-count">0 títulos</span></div>
+      <div class="search-container panel"><div class="search-wrapper"><span class="search-icon" aria-hidden="true">⌕</span><input id="search-input" class="search-input" type="search" placeholder="Buscar por título o autor..." autocomplete="off"></div></div>
+      <p id="library-status" class="status-message" hidden></p>
+      <div id="manga-grid" class="content-grid" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>LectorPolar · Biblioteca digital con HTML, CSS, JavaScript y Supabase.</p></footer>
+  <script src="js/config.js?v=20260722-v15"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="js/app.js?v=20260722-v11"></script>
+  <script type="module" src="js/home-carousel.js?v=20260722-v1"></script>
+</body>
+</html>
